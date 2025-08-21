@@ -1,3 +1,5 @@
+#include "MakeSentence.h"
+
 #ifdef _DEBUG
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
@@ -5,28 +7,19 @@
 #else
 #include <stdlib.h>
 #endif // _DEBUG
+#include "conio.h"
 #include <stdio.h>
 #include <iostream>
 #include "assert.h"
 
-struct indWords
+namespace MakeSentence
 {
-	char * oneWord;
-	indWords * nextWord = nullptr;
 
-	indWords(char * iWord)
-	{
-		assert(iWord != nullptr);
-		oneWord = iWord;
-	}
-
-	indWords()
-	{}
-
-	~indWords()
-	{}
-};
-
+indWords::indWords(char* iWord)
+{
+	assert(iWord != nullptr);
+	oneWord = iWord;
+}
 
 char * MakeSentence(const char * words[])
 {
@@ -72,7 +65,7 @@ char * MakeSentence(const char * words[])
 	return sentence;
 }
 
-void MakeSentenceRun(int i_argc, char ** i_argl)
+void MakeSentenceRun()
 {
 	char * pSentence;
 
@@ -141,3 +134,5 @@ void MakeSentenceRun(int i_argc, char ** i_argl)
 	_CrtDumpMemoryLeaks();
 #endif // _DEBUG
 }
+
+} // namespace MakeSentence

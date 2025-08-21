@@ -1,3 +1,6 @@
+#include "InterviewCoding.h"
+
+
 /*
 1. Place all zeroes in an array of integers at the end of the array
 2. Reverse a string in place
@@ -10,13 +13,22 @@
 #include <iostream>
 #include <conio.h>
 #include "assert.h"
+
+#include "MakeSentence.h"
+
 extern bool ZeroToEnd_UnitTest();
 extern bool ReverseString_UnitTest();
 
 int InterviewCoding()
 {
 	ZeroToEnd_UnitTest();
+	std::cout << std::endl;
+
 	ReverseString_UnitTest();
+	std::cout << std::endl;
+
+	MakeSentence::MakeSentenceRun();
+	std::cout << std::endl;
 
 	_getch();
 
@@ -26,5 +38,3 @@ int InterviewCoding()
 
 	return 0;
 }
-
-

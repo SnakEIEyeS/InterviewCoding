@@ -127,11 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="InterviewCoding.h" />
+    <ClInclude Include="MakeSentence.h" />
     <ClInclude Include="src\ReverseString.h" />
     <ClInclude Include="src\ZeroToEnd.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\InterviewCoding.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MakeSentence.cpp" />
     <ClCompile Include="src\ReverseString_UnitTest.cpp" />
     <ClCompile Include="src\ZeroToEnd_UnitTest.cpp" />
