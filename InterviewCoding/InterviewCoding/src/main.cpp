@@ -1,6 +1,8 @@
 #include "InterviewCoding.h"
 
-void main()
+int main()
 {
 	InterviewCoding();
+
+	return 0;
 }
