@@ -27,13 +27,13 @@ void InterviewCoding()
 	ReverseString_UnitTest();
 	std::cout << std::endl;
 
-	MakeSentence::MakeSentenceRun();
+	MakeSentence::MakeSentence();
 	std::cout << std::endl;
 
 	_getch();
 
 #if defined(_DEBUG)
-	_CrtDumpMemoryLeaks();
+	assert(!_CrtDumpMemoryLeaks());
 #endif // _DEBUG
 
 }
