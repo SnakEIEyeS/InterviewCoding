@@ -123,7 +123,7 @@ void MakeSentenceRun()
 
 		int delword = 0;
 		while (wordList[delword] != nullptr)
-			delete (char *)(wordList[delword++]);
+			delete[] (char *)(wordList[delword++]);
 
 		delete[] wordList;
 
