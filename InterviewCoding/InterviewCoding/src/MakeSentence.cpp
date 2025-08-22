@@ -21,10 +21,10 @@ indWords::indWords(char* iWord)
 	oneWord = iWord;
 }
 
-char * MakeSentence(const char * words[])
+int GetFinalSentenceRequiredSize(const char* words[])
 {
 	assert(words != nullptr);
-	int i = 0, j = 0, k = 0, sentsize = 0;
+	int i = 0, j = 0, sentsize = 0;
 
 	while (words[i] != nullptr)
 	{
@@ -41,9 +41,12 @@ char * MakeSentence(const char * words[])
 		}
 	}
 
-	i = 0;
-	char * sentenceret = (char *)malloc((sentsize + 1) * sizeof(char));
-	char * sentence = sentenceret;
+	return sentsize + 1;
+}
+
+void ConstructSentence(const char* words[], char*& sentence)
+{
+	int i = 0, j = 0, k = 0;
 	while (words[i] != nullptr)
 	{
 		if (*(words[i] + j) == '\0')
@@ -61,11 +64,9 @@ char * MakeSentence(const char * words[])
 	}
 	sentence[k - 1] = '.';
 	sentence[k] = '\0';
-
-	return sentence;
 }
 
-void MakeSentenceRun()
+void MakeSentence()
 {
 	char * pSentence;
 
@@ -116,14 +117,16 @@ void MakeSentenceRun()
 			delete prevWord;
 		}
 
-		pSentence = MakeSentence(wordList);
+		int sentenceSize = GetFinalSentenceRequiredSize(wordList);
+		pSentence = (char*)malloc((sentenceSize) * sizeof(char));
+		ConstructSentence(wordList, pSentence);
 		assert(pSentence != nullptr);
 
 		printf("The Sentence is: %s", pSentence);
 
 		int delword = 0;
 		while (wordList[delword] != nullptr)
-			delete (char *)(wordList[delword++]);
+			delete[] (char *)(wordList[delword++]);
 
 		delete[] wordList;
 
@@ -131,7 +134,7 @@ void MakeSentenceRun()
 	}
 
 #if defined(_DEBUG)
-	_CrtDumpMemoryLeaks();
+	assert(!_CrtDumpMemoryLeaks());
 #endif // _DEBUG
 }
 

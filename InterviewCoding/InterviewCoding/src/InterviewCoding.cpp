@@ -19,7 +19,7 @@
 extern bool ZeroToEnd_UnitTest();
 extern bool ReverseString_UnitTest();
 
-int InterviewCoding()
+void InterviewCoding()
 {
 	ZeroToEnd_UnitTest();
 	std::cout << std::endl;
@@ -27,14 +27,13 @@ int InterviewCoding()
 	ReverseString_UnitTest();
 	std::cout << std::endl;
 
-	MakeSentence::MakeSentenceRun();
+	MakeSentence::MakeSentence();
 	std::cout << std::endl;
 
 	_getch();
 
 #if defined(_DEBUG)
-	_CrtDumpMemoryLeaks();
+	assert(!_CrtDumpMemoryLeaks());
 #endif // _DEBUG
 
-	return 0;
 }

@@ -19,8 +19,6 @@ struct indWords
 	}
 };
 
-char* MakeSentence(const char* words[]);
-
-void MakeSentenceRun();
+void MakeSentence();
 
 } // namespace MakeSentence
